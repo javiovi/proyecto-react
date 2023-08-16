@@ -7,6 +7,7 @@
  */
 
 import React, {useState, useRef, useEffect} from 'react';
+//Vamos a crear dos contadores distintos,cada uno en un estado diferente
 
 const Ejemplo2 = () => {
 
@@ -27,6 +28,7 @@ setContador2(contador2 + 1);
 }
 
 /*Trabajando con UseEffect */
+/* Caso 1> Ejecutar siempre un snippet de codigo, cada vez que haya un cambio en el estado del componente se ejecuta aquello dentro de useEffect */
 
 useEffect(() => {
     console.log('CAMBIO EN EL ESTADO DEL COMPONENTE')

@@ -7,9 +7,8 @@
 import React, {useState, useContext } from 'react';
 
 const miContexto = React.createContext(null)
+
 const Componente1 = () => {
-  
-  
   const state = useContext(miContexto);
   
     return (
@@ -25,6 +24,8 @@ const Componente1 = () => {
 const Componente2 = () => {
 
     const state = useContext(miContexto);
+
+
     return (
         <div>
             <h2> La sesion es: {state.sesion}</h2>
@@ -53,8 +54,10 @@ export default function MiComponenteConContexto(){
    
    return (
   <miContexto.Provider value={sessionData}>
+  
    <Componente1></Componente1>
    <button onClick={actualizarSesion}> Actualizar Sesion</button>
+
   </miContexto.Provider>
         )
 }

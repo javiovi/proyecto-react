@@ -2,7 +2,7 @@
  * Componente de tipo clase que dipsone los metodos de ciclo de vidas
  */
 
-import React, { Component } fron 'react'
+import React, { Component } from 'react'
 import  PropTypes  from 'prop-types'
 
 class LifeCycleExample extends Component {
