@@ -20,19 +20,37 @@ useEffect(() => {
 
 
     return (
-        <div>
-            <h2 className='task-name'>
-            Nombre: { task.name } 
-            </h2>
-            <h3>Descripcion: { task.description }
-            </h3>
-            <h4>
-                Level: { task.level }
-            </h4>
-            <h5>
-                This task is: { task.completed ? 'COMPLETED':'PENDING' }
-            </h5>
-        </div>
+        <tr className='fw-normal'>
+        <th>
+            <span className='ms-2'>{task.name}</span>
+        </th>
+        <td className='align-middle'>
+        <span >{task.description}</span>
+        </td>
+        <td className='align-middle'>
+        {/*SUstituir por un badger*/}
+        <span >{task.level}</span>
+        </td>
+        <td className='align-middle'>
+        <span >{task.completed ? 'Completed': 'Pending'}</span>
+        </td>
+        </tr>
+
+
+
+      //  <div>
+        //    <h2 className='task-name'>
+          //  Nombre: { task.name } 
+            //</h2>
+            //<h3>Descripcion: { task.description }
+            //</h3>
+            //<h4>
+              //  Level: { task.level }
+            //</h4>
+            //<h5>
+              //  This task is: { task.completed ? 'COMPLETED':'PENDING' }
+            //</h5>
+        //</div>
     );
 };
 

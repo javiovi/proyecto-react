@@ -11,23 +11,24 @@ import GreetingStyled from './components/pure/greetingStyled';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/*<header className="App-header">*/}
+      {/*  <img src={logo} className="App-logo" alt="logo" />*/}
       {/* Componente propio greeting.jsx */}
      { /* <Greeting name="Javier"></Greeting>*/}
      {/* <GreetingF name="Javier"></GreetingF>*/}
-     {/*<TaskListComponent></TaskListComponent>*/}
+     
      {/*<Ejemplo1></Ejemplo1>*/}
    {/*<Ejemplo2></Ejemplo2> */}
    {/*<MiComponenteConContexto></MiComponenteConContexto>*/}
      ¨{/* <Ejemplo4 nombre="Javier">
         <h3>COntenido props.children</h3>
       </Ejemplo4>*/}
-      
-      <GreetingStyled name= "Javier"></GreetingStyled>
-      </header>
-    </div>
-  );
+      {/* <GreetingStyled name= "Javier"></GreetingStyled>*/}
+     
+     {/* </header> */}
+     <TaskListComponent></TaskListComponent>
+ </div> 
+ );
 }
 
 export default App;
