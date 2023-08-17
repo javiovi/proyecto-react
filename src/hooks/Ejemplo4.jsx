@@ -8,9 +8,9 @@ const Ejemplo4 = (props) => {
     return (
         <div> 
         <h1> Ejemplo CHILDREN PROPS </h1>
-        <H2>
+        <h2>
         Nombre: {props.nombre}
-        </H2>
+        </h2>
         {/* props.children pintara por defecto aquello que se encuentre entre las etiquetas
         de apertura y cierre de este componente */}
 
