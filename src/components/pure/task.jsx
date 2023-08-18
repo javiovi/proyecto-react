@@ -4,9 +4,9 @@ import { Task } from '../../models/task.class';
 import { LEVELS } from '../../models/levels.enum';
 
 //Importamos la hoja de estilos de task.scss
-//import '../../styles/task.scss'
+import '../../styles/task.scss'
 
-const TaskComponent = ({task}) => {
+const TaskComponent = ({ task, complete, remove}) => {
 
 useEffect(() => {
     console.log('Created Task')
@@ -23,36 +23,33 @@ function taskLevelBadge(){
                 {task.level}
             </span>
          </h6>)
+
          case LEVELS.URGENT:
-            return(<h6 className='mb-0' >
+            return(
+            <h6 className='mb-0' >
             <span className='badge bg-warning'>
                 {task.level}
             </span>
          </h6>)
-         case LEVELS.BLOKING:
-            return(<h6 className='mb-0' >
+
+         case LEVELS.BLOCKING:
+            return(
+            <h6 className='mb-0' >
             <span className='badge bg-danger'>
                 {task.level}
             </span>
          </h6>)
-    
-    
-    
-        default:
+  default:
             break;
     }
 }
-function taskCompletedIcon( ) {
+function taskCompletedIcon(){
     if(task.completed) {
-        return (<i className='bi-toggle-on' style={{color: 'green'}}></i>)
-    } else {
-        return (<i className='bi-toggle-off' style={{color: 'grey'}}></i>)
+        return (<i onClick={() => complete(task)} className='bi-toggle-on task-action' style={{color: 'green'}}></i>)
+    }else{
+        return (<i onClick={() => complete(task)} className='bi-toggle-off task-action'  style={{color: 'grey'}}></i>)
     }
 }
-
-
-
-
 
     return (
         <tr className='fw-normal'>
@@ -67,28 +64,21 @@ function taskCompletedIcon( ) {
         {/*SUstituir por un badger*/}
        {taskLevelBadge ()}
         </td>
-
         <td className='align-middle'>
       
-{taskCompletedIcon}
-(<i className='bi-toggle-on' style={{color: 'green'}}></i>)
- : (<i className='bi-toggle-off' style={{color: 'grey'}}></i>)
-
- (<i className='bi-trash' style={{color: 'tomato', fontWeight:'bold'}}></i>)
-        
+{taskCompletedIcon()}
+ (<i className='bi-trash task-action' onClick={() => remove(task)} style={{color: 'tomato'}}></i>)     
         </td>
         </tr>
-
-
-
    
     );
 };
 
 
 TaskComponent.propTypes = {
-    task: PropTypes.instanceOf(Task)
-
+    task: PropTypes.instanceOf(Task).isRequired,
+    complete: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 };
 
 

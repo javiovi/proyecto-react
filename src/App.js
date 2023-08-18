@@ -25,10 +25,11 @@ function App() {
         <h3>COntenido props.children</h3>
       </Ejemplo4>*/}
       {/* <GreetingStyled name= "Javier"></GreetingStyled>*/}
-     
      {/* </header> */}
-    {/* <TaskListComponent></TaskListComponent>*/}
-    <Father></Father>
+     ´{/* <Father></Father>*/}
+     <TaskListComponent></TaskListComponent>
+ 
+ 
  </div> 
  );
 }

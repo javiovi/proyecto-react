@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LEVELS } from '../../models/levels.enum';
 import { Task } from '../../models/task.class'
 import TaskComponent from '../pure/task';
@@ -15,26 +15,45 @@ const defaultTask3 = new Task('Example3', 'description3', false, LEVELS.BLOCKING
   const[loading, setLoading] = useState(true);
  
   //Control del ciclo de vida del componente
-  useState(() => {
-    console.log('Task state has been modified')
+  useEffect(() => {
+    console.log('Task state has been modified');
+    setLoading(false);
     return () => {
       console.log('TaskList component is goin to unmount')
     };
   }, [tasks]);
 
+  function completeTask(task){
+    console.log('Complete this Task:', task);
+    const index = tasks.indexOf(task);
+    const tempTasks = [...tasks];
+    tempTasks[index].completed = !tempTasks[index].completed;
+    //We update the statre of the component and it will update the
+    //interation of the task in order to show the task update
+    setTasks(tempTasks);
+  }
 
-    
-    const changeCompleted = (id) => {
-          console.log('TODO: Cambiar estado de una tarea')
-    }
-    
+  function deleteTask(task){
+    console.log('Delete this Task:', task);
+    const index = tasks.indexOf(task);
+    const tempTasks = [...tasks];
+    tempTasks.splice(index,1);
+    setTasks(tempTasks);
+
+  }
+  function addTask(task){console.log('Delete this Task:', task);
+  const index = tasks.indexOf(task);
+  const tempTasks = [...tasks];
+  tempTasks.push(task);
+  setTasks(tempTasks)
+
+  }
 
   return (
     <div>
     <div className='col-12'>
     <div className='card'>
-    
-      <div className='card-header p-3'>
+    <div className='card-header p-3'>
         <h5>Your Tasks: </h5>
 </div>
 
@@ -54,7 +73,9 @@ const defaultTask3 = new Task('Example3', 'description3', false, LEVELS.BLOCKING
     return (
       <TaskComponent 
       key={index} 
-      task={task}>
+      task={task}
+    complete={completeTask}
+    remove = {deleteTask}>
 
       </TaskComponent>
     )
@@ -63,12 +84,14 @@ const defaultTask3 = new Task('Example3', 'description3', false, LEVELS.BLOCKING
 </tbody>
 
 </table>
-<div><TaskForm></TaskForm></div>
+<div>
+
 </div>
     </div>
      
     </div>
 {/*<TaskComponent task={defaultTask}></TaskComponent>*/}
+<TaskForm add={addTask}></TaskForm></div>
     </div>
   );
 };
