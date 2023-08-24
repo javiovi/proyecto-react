@@ -17,8 +17,10 @@ const defaultTask3 = new Task('Example3', 'description3', false, LEVELS.BLOCKING
   //Control del ciclo de vida del componente
   useEffect(() => {
     console.log('Task state has been modified');
-    setLoading(false);
-    return () => {
+      setTimeout(() => {
+      setLoading(false);
+       }, 2000);
+   return () => {
       console.log('TaskList component is goin to unmount')
     };
   }, [tasks]);
@@ -88,6 +90,12 @@ const defaultTask3 = new Task('Example3', 'description3', false, LEVELS.BLOCKING
       <h4>Please, create one</h4>
     </div>)
   }
+  const loadingStyle = {
+    color: 'grey',
+    fontSize : '30px',
+    fontWeight: 'bold'
+
+  }
 
   return (
     <div>
@@ -98,13 +106,14 @@ const defaultTask3 = new Task('Example3', 'description3', false, LEVELS.BLOCKING
 </div>
 
 <div className='card-body' data-mdb-perfect-scrollbar='true' style={{position:'relative', height:'400px' }}>
-{tasksTable}
+{/*Add loading Spinner */}
+      {loading ? (<p style={loadingStyle}>Loading task...</p>) : tasksTable}
 </div>
     </div>
      
     </div>
 {/*<TaskComponent task={defaultTask}></TaskComponent>*/}
-<TaskForm add={addTask}></TaskForm>
+<TaskForm add={addTask} length={tasks.length}></TaskForm>
     </div>
   );
 };
