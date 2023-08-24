@@ -27,8 +27,8 @@ function App() {
       {/* <GreetingStyled name= "Javier"></GreetingStyled>*/}
      {/* </header> */}
      ´{/* <Father></Father>*/}
-     <TaskListComponent></TaskListComponent>
- 
+    {<TaskListComponent></TaskListComponent>}
+ {/*Ejemplos de renderizado condicinal */}
  
  </div> 
  );

@@ -2,10 +2,15 @@
     cursor: pointer;
 }
 
-body { 
-    background: aliceblue;
+
+
+.task-completed {
+color: gray;
+text-decoration: line-through;
+
 }
 
-.card {
-    background:  rgb(230, 230, 230);
+.task-pending {
+font-weight: bold;
+color: tomato;
 }

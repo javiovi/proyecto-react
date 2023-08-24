@@ -48,6 +48,46 @@ const defaultTask3 = new Task('Example3', 'description3', false, LEVELS.BLOCKING
   setTasks(tempTasks)
 
   }
+  const Table = () => {
+    return (
+    <table>
+      <thead>
+        <tr>
+          <th scope='col'>Title</th>
+          <th scope='col'>Description</th>
+          <th scope='col'>Priority</th>
+          <th scope='col'>Actions</th>
+        </tr>
+        </thead>
+      <tbody>
+        {/*TODO iterar sobre una lista de tareas */}
+        {tasks.map((task, index) => {
+          return (
+            <TaskComponent 
+            key={index} 
+            task={task}
+          complete={completeTask}
+          remove = {deleteTask}>
+      
+            </TaskComponent>
+          )
+        }
+        )}
+        
+      </tbody>
+      </table>
+    )
+  }
+  let  tasksTable;
+
+  if(tasks.length > 0) {
+    tasksTable = <Table></Table>
+  } else {
+    tasksTable = (<div>
+      <h3>There are no tasks to show</h3>
+      <h4>Please, create one</h4>
+    </div>)
+  }
 
   return (
     <div>
@@ -58,40 +98,13 @@ const defaultTask3 = new Task('Example3', 'description3', false, LEVELS.BLOCKING
 </div>
 
 <div className='card-body' data-mdb-perfect-scrollbar='true' style={{position:'relative', height:'400px' }}>
-<table>
-<thead>
-  <tr>
-    <th scope='col'>Title</th>
-    <th scope='col'>Description</th>
-    <th scope='col'>Priority</th>
-    <th scope='col'>Actions</th>
-  </tr>
-  </thead>
-<tbody>
-  {/*TODO iterar sobre una lista de tareas */}
-  {tasks.map((task, index) => {
-    return (
-      <TaskComponent 
-      key={index} 
-      task={task}
-    complete={completeTask}
-    remove = {deleteTask}>
-
-      </TaskComponent>
-    )
-  })}
-  
-</tbody>
-
-</table>
-<div>
-
+{tasksTable}
 </div>
     </div>
      
     </div>
 {/*<TaskComponent task={defaultTask}></TaskComponent>*/}
-<TaskForm add={addTask}></TaskForm></div>
+<TaskForm add={addTask}></TaskForm>
     </div>
   );
 };
