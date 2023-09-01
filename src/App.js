@@ -8,6 +8,7 @@ import MiComponenteConContexto  from './hooks/Ejemplo3';
 import Ejemplo4 from './hooks/Ejemplo4';
 import GreetingStyled from './components/pure/greetingStyled';
 import Father from './components/container/father';
+import LoginFormik from './components/pure/forms/loginFormik';
 
 function App() {
   return (
@@ -27,8 +28,9 @@ function App() {
       {/* <GreetingStyled name= "Javier"></GreetingStyled>*/}
      {/* </header> */}
      ´{/* <Father></Father>*/}
-    {<TaskListComponent></TaskListComponent>}
+    {/*<TaskListComponent></TaskListComponent> */}
  {/*Ejemplos de renderizado condicinal */}
+ <LoginFormik></LoginFormik>
  
  </div> 
  );
